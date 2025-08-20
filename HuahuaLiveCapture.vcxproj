@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>HuahuaLiveCapture</ProjectName>
+    <RootNamespace>HuahuaLiveCapture</RootNamespace>
+    <ProjectGuid>{3D0A9889-9EC1-4012-9382-4FE1EB610D28}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' Or '$(PlatformToolsetVersion)' == '110' Or '$(MSBuildToolsVersion)' ==  '4.0'">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' Or '$(PlatformToolsetVersion)' == '120' Or '$(MSBuildToolsVersion)' == '12.0'">v120_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' Or '$(PlatformToolsetVersion)' == '140' Or '$(MSBuildToolsVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0' Or '$(PlatformToolsetVersion)' == '141' Or '$(MSBuildToolsVersion)' == '15.0'">v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization Condition="'$(Configuration)'=='Release'">true</WholeProgramOptimization>
+    <UseDebugLibraries Condition="'$(Configuration)'=='Debug'">true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup>
+    <TargetName Condition="'$(Platform)'=='x64'">HuahuaLiveCapture64</TargetName>
+    <TargetName Condition="'$(Platform)'=='Win32'">HuahuaLiveCapture32</TargetName>
+    <OutDir>Build\$(Configuration)-$(TargetName)\</OutDir>
+    <IntDir>$(OutDir)</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)'=='Release'">false</LinkIncremental>
+    <LocalDebuggerCommand>$(ProgramW6432)\OBSStudio\bin\x64\obs64.exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(ProgramW6432)\OBSStudio\bin\x64</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Debug'">
+      <PreprocessorDefinitions>Win32;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Condition="'$(Configuration)'=='Release'">
+      <PreprocessorDefinitions>Win32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <OmitFramePointers>true</OmitFramePointers>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <AdditionalOptions Condition="'$(VisualStudioVersion)' &gt;= '12.0' Or '$(PlatformToolsetVersion)' &gt;= '120' Or '$(MSBuildToolsVersion)' &gt;= '12.0'">/Gw %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
+    </Link>
+    <Link Condition="'$(Configuration)'=='Release'">
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <IgnoreEmbeddedIDL>true</IgnoreEmbeddedIDL>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Streams.cpp" />
+    <ClCompile Include="HuahuaLiveCapture.cpp" />
+    <None Include="shared.inl" />
+    <None Include="Streams.h" />
+    <None Include="HuahuaLiveCapture.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
