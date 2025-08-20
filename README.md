@@ -17,11 +17,11 @@ Visual Studio 2022 (installed with Desktop development with C++ and Windows 10 S
 
 Open HuahuaLiveCapture.sln, choose the configuration Release and the platform x64, and build the solution.
   
-使用打开 Visual Studio 2022 打开 HuahuaLiveCapture.sln，选择配置Release和平台x64，然后构建解决方案。
+使用 Visual Studio 2022 打开 HuahuaLiveCapture.sln，选择配置Release和平台x64，然后构建解决方案。
 
 #### 3. Build the library / 注册dll
 
-Locate the built directory, copy HuahuaLiveCapture64.dll to your desired directory, and then run the registration program (with administrator privileges).
+Locate the build directory, copy HuahuaLiveCapture64.dll to your desired directory, and then run the registration program (with administrator privileges).
 
 找到构建后的目录，将 HuahuaLiveCapture64.dll 复制你的目标目录下，然后运行注册程序(管理员权限)。
     
@@ -80,7 +80,7 @@ const sender = edge.func({
 
 ...
 
-// Construct bitmap data (RGBA) 构建bitmap数据（RGBA）
+// Construct bitmap data (BGRA) 构建bitmap数据（BGRA）
 
 const bitmap = Buffer.alloc(width * height * 4, 0);
 

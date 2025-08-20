@@ -149,7 +149,6 @@ public class Startup
     }
 
     // 发送帧数据
-    // 发送帧数据
     public async Task<object> Invoke(dynamic input)
     {
         if (!Initialize())
